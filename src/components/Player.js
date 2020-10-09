@@ -10,7 +10,7 @@ const Player = (props) => {
         </span>
   
         <Counter />
-      </div>
+      </div>  
     );
   }
 
