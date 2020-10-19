@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Player from './Player';
+import AddPlayerForm from "./AddPlayerForm"
 
 
 // STATEFUL COMPONENT EXAMPLE SYNTAX
@@ -30,7 +31,7 @@ class App extends Component {
     ]
   };
 
-  handleScoreChange = ( index, delta) => {
+  handleScoreChange = ( index, delta ) => {
     this.setState( prevState => ({
       score: prevState.players[index].score += delta
     }));
@@ -49,7 +50,7 @@ class App extends Component {
       <div className="scoreboard">
         <Header 
           title="Scoreboard" 
-          totalPlayers={this.state.players.length} 
+          players={this.state.players} 
         />
   
         {/* Players list */}
@@ -60,10 +61,12 @@ class App extends Component {
             id={player.id}
             key={player.id.toString()}
             index ={index} 
-            changeScore={this. handleScoreChange}
+            changeScore={this.handleScoreChange}
             removePlayer={this.handleRemovePlayer}           
           />
         )}
+
+        <AddPlayerForm />
       </div>
     );
   }
